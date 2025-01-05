@@ -12,6 +12,8 @@
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
+    <link href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css" rel="stylesheet">
+
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
@@ -34,6 +36,32 @@
             {{ $slot }}
         </main>
     </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(function() {
+            $('#answer-table').DataTable({
+                processing: true,
+                serverSide: true,
+                ajax: '{{ route('dashboard') }}',
+                columns: [
+                    { data: 'DT_RowIndex', name: 'DT_RowIndex', className: 'text-center' },
+                    { data: 'howLong', name: 'howLong', className: 'text-center' },
+                    { data: 'objective', name: 'objective', className: 'text-center' },
+                    { data: 'goal', name: 'goal', className: 'text-center' },
+                    { data: 'confident', name: 'confident', className: 'text-center' },
+                    { data: 'action', name: 'action', className: 'text-center' }
+                ],
+                autofill: true,
+                select: true,
+                responsive: true,
+                buttons: true,
+                length: 10,
+            });
+        });
+
+    </script>
 </body>
 
 

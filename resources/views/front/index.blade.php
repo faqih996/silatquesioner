@@ -913,17 +913,19 @@
             <div class="relative w-full max-w-2xl px-6 lg:max-w-7xl">
                 <header class="grid items-center grid-cols-2 gap-2 py-10 lg:grid-cols-3">
                     <div class="flex lg:justify-center lg:col-start-2">
-                        <h1 class="text-xl font-bold">Quesioner Silat</h1>
+                        <h1 class="text-xl font-bold">Quesioner</h1>
                     </div>
                 </header>
 
                 <main class="mt-6">
                     <p class="items-center pb-2 text-center text-md">Identitas-mu tidak akan terdeteksi dan dikenali.
-                        Jawab dengan
-                        jujur berikan kritik juga masukan tanpa harus khawatir</p>
+                        Jawab sesuai dengan yang anda alami dan rasakan. berikan kritik juga masukan tanpa harus khawatir ketahuan</p>
 
                         <div
                             class="overflow-hidden bg-white border-2 border-gray-400 border-solid rounded-lg shadow-sm">
+
+                            <p class="p-6 text-sm text-red-600 font-italic">Tips : gunakan ejaan yang baku dan gaya typing yang berbeda dengan di chat</p>
+
                             @if ($errors->any())
                             @foreach ($errors->all() as $error)
                             <div class="w-full p-6 text-white bg-red-500 rounded-3xl">
@@ -931,12 +933,14 @@
                             </div>
                             @endforeach
                             @endif
+
+
                             <form method="POST" action="{{ route('front.store') }}">
                                 @csrf
                                 <div class="grid gap-6 lg:gap-8">
                                     <div class="p-6 text-gray-900">
                                         <label for="reasonJoin"
-                                            class="inline-block mb-2 ml-1 text-lg font-bold text-black/70">Alasan kamu
+                                            class="inline-block mb-2 ml-1 text-lg font-bold text-black/70">Alasan Awal kamu
                                             bergabung
                                             Perisai Diri?</label>
                                         <input type="text" name="reasonJoin" required autofocus
@@ -1006,13 +1010,13 @@
 
                                         <label for="spirit"
                                             class="inline-block mt-4 mb-2 ml-1 text-lg font-medium text-black/70">
-                                            Faktor apa saja yang membuatmu bersemangat ketika latihan?</label>
+                                            Faktor apa saja yang membuatmu bersemangat/Nyaman ketika latihan?</label>
                                         <input type="text" name="spirit" required autofocus
                                             class="text-md leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-blue-70 focus:outline-none" />
 
                                         <label for="notSpirit"
                                             class="inline-block mt-4 mb-2 ml-1 text-lg font-medium text-black/70">
-                                            Faktor apa saja yang membuatmu tidak bersemangat ketika latihan?</label>
+                                            Faktor apa saja yang membuatmu tidak bersemangat/Nyaman ketika latihan?</label>
                                         <input type="text" name="notSpirit" required autofocus
                                             class="text-md leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-blue-70 focus:outline-none" />
 
@@ -1065,7 +1069,7 @@
 
                                         <label for="harmingWords"
                                             class="inline-block mt-4 mb-2 ml-1 text-lg font-medium text-black/70">
-                                            Perkataan atau Hal Menyakitkan Apa yang pernah kamu terima dari pelatih selama latihan?</label>
+                                            Perkataan atau Hal Tidak Menyenangkan Apa yang pernah kamu terima dari pelatih selama latihan?</label>
                                         <textarea name="harmingWords" required autofocus
                                             class="mb-2 px-3 py-2 text-md leading-5.6 ease block w-full h-60 appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-blue-70 focus:outline-none">
                                         </textarea>
@@ -1113,29 +1117,33 @@
                                         </textarea>
 
                                         <label for="messageToPerson1"
-                                            class="inline-block mt-4 mb-2 ml-1 text-lg font-medium text-black/70">
+                                            class="inline-block mt-4 mb-1 ml-1 text-lg font-medium text-black/70">
                                             Kritik/Pesan/Saran Untuk Faqih?</label>
+                                        <p class="mb-2 text-sm text-italic">Sebagai pelatih & personal</p>
                                         <textarea name="messageToPerson1" required autofocus
                                             class="mb-2 px-3 py-2 text-md leading-5.6 ease block w-full h-60 appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-blue-70 focus:outline-none">
                                         </textarea>
 
                                         <label for="messageToPerson2"
-                                            class="inline-block mt-4 mb-2 ml-1 text-lg font-medium text-black/70">
+                                            class="inline-block mt-4 mb-1 ml-1 text-lg font-medium text-black/70">
                                             Kritik/Pesan/Saran Untuk Bayu?</label>
+                                        <p class="mb-2 text-sm font-italic">Sebagai pelatih & personal</p>
                                         <textarea name="messageToPerson2" required autofocus
                                             class="mb-2 px-3 py-2 text-md leading-5.6 ease block w-full h-60 appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-blue-70 focus:outline-none">
                                         </textarea>
 
                                         <label for="messageToPerson3"
-                                            class="inline-block mt-4 mb-2 ml-1 text-lg font-medium text-black/70">
+                                            class="inline-block mt-4 mb-1 ml-1 text-lg font-medium text-black/70">
                                             Kritik/Pesan/Saran Untuk Greg?</label>
+                                        <p class="mb-2 text-sm font-italic">Sebagai pelatih & personal</p>
                                         <textarea name="messageToPerson3" required autofocus
                                             class="mb-2 px-3 py-2 text-md leading-5.6 ease block w-full h-60 appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-blue-70 focus:outline-none">
                                         </textarea>
 
                                         <label for="messageToPerson4"
-                                            class="inline-block mt-4 mb-2 ml-1 text-lg font-medium text-black/70">
+                                            class="inline-block mt-4 mb-1 ml-1 text-lg font-medium text-black/70">
                                             Kritik/Pesan/Saran Untuk Riqqi?</label>
+                                        <p class="mb-2 text-sm font-italic">Sebagai pelatih & personal</p>
                                         <textarea name="messageToPerson4" required autofocus
                                             class="mb-2 px-3 py-2 text-md leading-5.6 ease block w-full h-60 appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-blue-70 focus:outline-none">
                                         </textarea>
