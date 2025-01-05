@@ -911,247 +911,22 @@
 
         <div class="relative flex flex-col items-center justify-center min-h-screen">
             <div class="relative w-full max-w-2xl px-6 lg:max-w-7xl">
-                <header class="grid items-center grid-cols-2 gap-2 py-10 lg:grid-cols-3">
-                    <div class="flex lg:justify-center lg:col-start-2">
-                        <h1 class="text-xl font-bold">Quesioner Silat</h1>
-                    </div>
-                </header>
-
                 <main class="mt-6">
-                    <p class="items-center pb-2 text-center text-md">Identitas-mu tidak akan terdeteksi dan dikenali.
-                        Jawab dengan
-                        jujur berikan kritik juga masukan tanpa harus khawatir</p>
-
                         <div
                             class="overflow-hidden bg-white border-2 border-gray-400 border-solid rounded-lg shadow-sm">
-                            @if ($errors->any())
-                            @foreach ($errors->all() as $error)
-                            <div class="w-full p-6 text-white bg-red-500 rounded-3xl">
-                                {{ $error }}
-                            </div>
-                            @endforeach
-                            @endif
-                            <form method="POST" action="{{ route('front.store') }}">
-                                @csrf
                                 <div class="grid gap-6 lg:gap-8">
-                                    <div class="p-6 text-gray-900">
-                                        <label for="reasonJoin"
-                                            class="inline-block mb-2 ml-1 text-lg font-bold text-black/70">Alasan kamu
-                                            bergabung
-                                            Perisai Diri?</label>
-                                        <input type="text" name="reasonJoin" required autofocus
-                                            class="text-md leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-blue-70 focus:outline-none" />
-
-                                        <label for="howLong"
-                                            class="inline-block mt-4 mb-2 ml-1 text-lg font-bold text-black/70">Berapa lama
-                                            kamu bergabung Perisai Diri?</label>
-                                        <select type="text" name="howLong" required autofocus
-                                            class="focus:shadow-primary-outline text-sm leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-blue-70 focus:outline-none" />
-                                        <option value="" disabled selected>Pilih salah satu</option>
-                                        <option value="Kurang Dari 1 Tahun">Kurang Dari 1 Tahun</option>
-                                        <option value="Sekitar 1 Tahun">Sekitar 1 Tahun</option>
-                                        <option value="Lebih Dari 1 Tahun">Lebih Dari 1 Tahun</option>
-                                        <option value="Lebih Dari 2 Tahun">Lebih Dari 2 Tahun</option>
-                                        <option value="Lebih Dari 3 Tahun">Lebih Dari 3 Tahun</option>
-                                        <option value="Lebih Dari 4 Tahun">Lebih Dari 4 Tahun</option>
-                                        <option value="Lebih Dari 5 Tahun">Lebih Dari 5 Tahun</option>
-                                        <option value="Lebih Dari 6 Tahun">Lebih Dari 6 Tahun</option>
-                                        <option value="Lebih Dari 7 Tahun">Lebih Dari 7 Tahun</option>
-                                        <option value="Lebih Dari 8 Tahun">Lebih Dari 8 Tahun</option>
-                                        <option value="Lebih Dari 9 Tahun">Lebih Dari 9 Tahun</option>
-                                        <option value="Lebih Dari 10 Tahun">Lebih Dari 10 Tahun</option>
-                                        </select>
-
-                                        <label for="objective"
-                                            class="inline-block mt-4 mb-2 ml-1 text-lg font-bold text-black/70">Tujuan kamu
-                                            mengikuti latihan?</label>
-                                        <select name="objective" required autofocus
-                                            class="focus:shadow-primary-outline text-sm leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-blue-70 focus:outline-none"
-                                            onchange="handleTujuanChange(this)">
-                                            <option value="" disabled selected>Pilih salah satu</option>
-                                            <option value="Olahraga">Olahraga</option>
-                                            <option value="Menjadi Atlet">Menjadi Atlet</option>
-                                            <option value="Bersenang-senang">Bersenang-senang</option>
-                                            <option value="Mencari Kesibukan">Mencari Kesibukan</option>
-                                            <option value="Mendapat Teman">Mendapat Teman</option>
-                                            <option value="Masuk Akmil">Masuk Akmil</option>
-                                            <option value="">Lainnya</option>
-                                        </select>
-
-                                        <div id="tujuanLainnyaContainer" style="display: none; margin-top: 10px;">
-                                            <label for="tujuan_lainnya"
-                                                class="block mb-2 font-bold text-gray-700 text-md">Jelaskan</label>
-                                            <input type="text" id="tujuan_lainnya" name="tujuan_lainnya"
-                                                class="focus:shadow-primary-outline text-sm leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-blue-70 focus:outline-none">
+                                    <div class="items-center p-6 text-center text-gray-900">
+                                        <div class="flex justify-center">
+                                            <img src="{{ asset('assets/signboard.png') }}" class="items-center justify-center text-center w-36 h-36" alt="img" srcset="">
                                         </div>
-
-                                        <label for="goal"
-                                            class="inline-block mt-4 mb-2 ml-1 text-lg font-medium text-black/70">Apa Impian
-                                            Kamu di Perisai Diri?</label>
-                                        <input type="text" name="goal" required autofocus
-                                            class="text-md leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-blue-70 focus:outline-none" />
-
-                                        <label for="confident"
-                                            class="inline-block mt-4 mb-2 ml-1 text-lg font-medium text-black/70">Seberapa
-                                            yakin kamu bisa mencapai Impian mu?</label>
-                                        <select name="confident" required autofocus
-                                            class="focus:shadow-primary-outline text-sm leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-blue-70 focus:outline-none">
-                                            <option value="" disabled selected>Pilih salah satu</option>
-                                            <option value="Sangat Tidak Yakin">Sangat Tidak Yakin</option>
-                                            <option value="Tidak Terlalu Yakin">Tidak Terlalu Yakin</option>
-                                            <option value="Yakin">Yakin</option>
-                                            <option value="Yakin Sekali">Yakin Sekali</option>
-                                            <option value="Sangat Yakin Sekali">Sangat Yakin Sekali</option>
-                                        </select>
-
-                                        <label for="spirit"
-                                            class="inline-block mt-4 mb-2 ml-1 text-lg font-medium text-black/70">
-                                            Faktor apa saja yang membuatmu bersemangat ketika latihan?</label>
-                                        <input type="text" name="spirit" required autofocus
-                                            class="text-md leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-blue-70 focus:outline-none" />
-
-                                        <label for="notSpirit"
-                                            class="inline-block mt-4 mb-2 ml-1 text-lg font-medium text-black/70">
-                                            Faktor apa saja yang membuatmu tidak bersemangat ketika latihan?</label>
-                                        <input type="text" name="notSpirit" required autofocus
-                                            class="text-md leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-blue-70 focus:outline-none" />
-
-                                        <label for="material"
-                                            class="inline-block mt-4 mb-2 ml-1 text-lg font-medium text-black/70">Materi apa
-                                            yang kamu Sukai di Perisai Diri?</label>
-                                        <input type="text" name="material" required autofocus
-                                            class="text-md leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-blue-70 focus:outline-none" />
-
-                                        <label for="activity"
-                                            class="inline-block mt-4 mb-2 ml-1 text-lg font-medium text-black/70">Aktivitas
-                                            apa yang kamu Sukai di Perisai Diri?</label>
-                                        <input type="text" name="activity" required autofocus
-                                            class="text-md leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-blue-70 focus:outline-none" />
-
-                                        <label for="change"
-                                            class="inline-block mt-4 mb-2 ml-1 text-lg font-medium text-black/70">Perubahan
-                                            apa yang kamu rasakan setelah bergabung di Perisai Diri?</label>
-                                        <textarea name="change" required autofocus
-                                            class="mb-2 px-3 py-2 text-md leading-5.6 ease block w-full h-60 appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-blue-70 focus:outline-none">
-                                        </textarea>
-
-                                        <label for="benefit"
-                                            class="inline-block mt-4 mb-2 ml-1 text-lg font-medium text-black/70">Manfaat
-                                            apa yang kamu rasakan setelah bergabung di Perisai Diri?</label>
-                                        <textarea name="benefit" required autofocus
-                                            class="mb-2 px-3 py-2 text-md leading-5.6 ease block w-full h-60 appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-blue-70 focus:outline-none">
-                                        </textarea>
-
-                                        <label for="impressive"
-                                            class="inline-block mt-4 mb-2 ml-1 text-lg font-medium text-black/70">
-                                            Hal apa yang paling berkesan yang kamu rasakan di Perisai Diri?</label>
-                                        <textarea name="impressive" required autofocus
-                                            class="mb-2 px-3 py-2 text-md leading-5.6 ease block w-full h-60 appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-blue-70 focus:outline-none">
-                                        </textarea>
-
-                                        <label for="proud"
-                                            class="inline-block mt-4 mb-2 ml-1 text-lg font-medium text-black/70">
-                                            Hal apa yang paling Membanggakan yang alami selama di Perisai Diri?</label>
-                                        <textarea name="proud" required autofocus
-                                            class="mb-2 px-3 py-2 text-md leading-5.6 ease block w-full h-60 appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-blue-70 focus:outline-none">
-                                        </textarea>
-
-                                        <label for="touchingWords"
-                                            class="inline-block mt-4 mb-2 ml-1 text-lg font-medium text-black/70">
-                                            Perkataan atau Hal Menyenangkan Apa yang pernah kamu terima dari pelatih selama latihan?</label>
-                                        <textarea name="touchingWords" required autofocus
-                                            class="mb-2 px-3 py-2 text-md leading-5.6 ease block w-full h-60 appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-blue-70 focus:outline-none">
-                                        </textarea>
-
-                                        <label for="harmingWords"
-                                            class="inline-block mt-4 mb-2 ml-1 text-lg font-medium text-black/70">
-                                            Perkataan atau Hal Menyakitkan Apa yang pernah kamu terima dari pelatih selama latihan?</label>
-                                        <textarea name="harmingWords" required autofocus
-                                            class="mb-2 px-3 py-2 text-md leading-5.6 ease block w-full h-60 appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-blue-70 focus:outline-none">
-                                        </textarea>
-
-                                        <label for="notHappenAgain"
-                                            class="inline-block mt-4 mb-2 ml-1 text-lg font-medium text-black/70">
-                                            Hal apa yang kamu harap tidak terjadi lagi selama latihan atau mengikuti kegiatan di Perisai Diri?</label>
-                                        <textarea name="notHappenAgain" required autofocus
-                                            class="mb-2 px-3 py-2 text-md leading-5.6 ease block w-full h-60 appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-blue-70 focus:outline-none">
-                                        </textarea>
-
-                                        <label for="obstacle"
-                                                class="inline-block mt-4 mb-2 ml-1 text-lg font-medium text-black/70">
-                                                Hambatan apa yang kamu hadapi untuk datang latihan, saat latihan dan setelah latihan?</label>
-                                        <textarea name="obstacle" required autofocus
-                                                class="mb-2 px-3 py-2 text-md leading-5.6 ease block w-full h-60 appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-blue-70 focus:outline-none">
-                                        </textarea>
-
-                                        <label for="why"
-                                            class="inline-block mt-4 mb-2 ml-1 text-lg font-medium text-black/70">
-                                            Kenapa kamu masih mengikuti latihan hingga sekarang?</label>
-                                        <textarea name="why" required autofocus
-                                            class="mb-2 px-3 py-2 text-md leading-5.6 ease block w-full h-60 appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-blue-70 focus:outline-none">
-                                        </textarea>
-
-                                        <label for="criticism"
-                                            class="inline-block mt-4 mb-2 ml-1 text-lg font-medium text-black/70">
-                                            Apa kritik kamu terkait latihan dan kegiatan yang selama ini?</label>
-                                        <textarea name="criticism" required autofocus
-                                            class="mb-2 px-3 py-2 text-md leading-5.6 ease block w-full h-60 appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-blue-70 focus:outline-none">
-                                        </textarea>
-
-                                        <label for="suggestion"
-                                            class="inline-block mt-4 mb-2 ml-1 text-lg font-medium text-black/70">
-                                            Apa Masukan kamu terkait latihan dan kegiatan yang kedepannya?</label>
-                                        <textarea name="suggestion" required autofocus
-                                            class="mb-2 px-3 py-2 text-md leading-5.6 ease block w-full h-60 appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-blue-70 focus:outline-none">
-                                        </textarea>
-
-                                        <label for="recommendation"
-                                            class="inline-block mt-4 mb-2 ml-1 text-lg font-medium text-black/70">
-                                            Apa Kamu memiliki Ide/Rekomendasi latihan dan kegiatan kedepannya?</label>
-                                        <textarea name="recommendation" required autofocus
-                                            class="mb-2 px-3 py-2 text-md leading-5.6 ease block w-full h-60 appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-blue-70 focus:outline-none">
-                                        </textarea>
-
-                                        <label for="messageToPerson1"
-                                            class="inline-block mt-4 mb-2 ml-1 text-lg font-medium text-black/70">
-                                            Kritik/Pesan/Saran Untuk Faqih?</label>
-                                        <textarea name="messageToPerson1" required autofocus
-                                            class="mb-2 px-3 py-2 text-md leading-5.6 ease block w-full h-60 appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-blue-70 focus:outline-none">
-                                        </textarea>
-
-                                        <label for="messageToPerson2"
-                                            class="inline-block mt-4 mb-2 ml-1 text-lg font-medium text-black/70">
-                                            Kritik/Pesan/Saran Untuk Bayu?</label>
-                                        <textarea name="messageToPerson2" required autofocus
-                                            class="mb-2 px-3 py-2 text-md leading-5.6 ease block w-full h-60 appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-blue-70 focus:outline-none">
-                                        </textarea>
-
-                                        <label for="messageToPerson3"
-                                            class="inline-block mt-4 mb-2 ml-1 text-lg font-medium text-black/70">
-                                            Kritik/Pesan/Saran Untuk Greg?</label>
-                                        <textarea name="messageToPerson3" required autofocus
-                                            class="mb-2 px-3 py-2 text-md leading-5.6 ease block w-full h-60 appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-blue-70 focus:outline-none">
-                                        </textarea>
-
-                                        <label for="messageToPerson4"
-                                            class="inline-block mt-4 mb-2 ml-1 text-lg font-medium text-black/70">
-                                            Kritik/Pesan/Saran Untuk Riqqi?</label>
-                                        <textarea name="messageToPerson4" required autofocus
-                                            class="mb-2 px-3 py-2 text-md leading-5.6 ease block w-full h-60 appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-blue-70 focus:outline-none">
-                                        </textarea>
-
-                                        <div class="flex items-center justify-end mt-8 z-200">
-                                            <button type="submit"
-                                                class="px-3 py-3 font-bold text-white bg-green-600 rounded-lg hover:bg-green-300">
-                                                Simpan
-                                            </button>
-                                        </div>
-
+                                        <p class="p-4 text-lg font-normal text-black/70">Jawabanmu sudah disimpan!</p>
+                                        <p class="p-4 text-lg font-normal text-black/70">Tenang saja, ini hanyalah aplikasi sederhana, jadi rahasia-mu aman</p>
+                                        <p class="text-lg font-normal text-black/70">Semoga dengan Kritik dan Masukan yang Kalian Kirimkan Kita Dapat Jadikan Bahan Untuk Evaluasi Supaya Menjadi Lebih Baik Kedepannya!</p>
+                                        <p class="text-lg font-normal text-black/70">Mari Bertumbuh Bersama Menjadi Manusia Yang Lebih Baik</p>
                                     </div>
                                 </div>
                             </form>
                         </div>
-
                 </main>
 
                 <footer class="py-16 text-sm text-center">
@@ -1162,23 +937,5 @@
     </div>
 
 </body>
-
-    <script>
-        function handleTujuanChange(select) {
-            const lainnyaContainer = document.getElementById('tujuanLainnyaContainer');
-            const tujuanLainnyaInput = document.getElementById('tujuan_lainnya');
-
-            if (select.value === '') {
-                // Jika pilih "Lainnya", tampilkan form input
-                lainnyaContainer.style.display = 'block';
-                tujuanLainnyaInput.required = true; // Pastikan form input menjadi required
-            } else {
-                // Sembunyikan form input jika pilihan bukan "Lainnya"
-                lainnyaContainer.style.display = 'none';
-                tujuanLainnyaInput.required = false;
-                tujuanLainnyaInput.value = ''; // Kosongkan input field
-            }
-        }
-    </script>
 
 </html>

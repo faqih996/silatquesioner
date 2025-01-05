@@ -11,13 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('quesioners', function (Blueprint $table) {
+        Schema::create('questioners', function (Blueprint $table) {
             $table->id();
             $table->string('howLong');
             $table->longText('reasonJoin');
             $table->string('objective');
             $table->string('goal');
-            $table->longText('confident');
+            $table->string('confident');
             $table->string('material');
             $table->string('activity');
             $table->longText('change');
@@ -48,6 +48,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('quesioners');
+        Schema::dropIfExists('questioners');
     }
 };

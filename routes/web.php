@@ -3,9 +3,12 @@
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\QuestionerController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [FrontendController::class, 'index'])->name('front.index');
+Route::get('/thankyou', [FrontendController::class, 'thankyou'])->name('front.thankyou');
+Route::post('/store', [QuestionerController::class, 'store'])->name('front.store');
 
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
