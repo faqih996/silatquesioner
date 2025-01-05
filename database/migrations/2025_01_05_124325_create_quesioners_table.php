@@ -17,6 +17,8 @@ return new class extends Migration
             $table->longText('reasonJoin');
             $table->string('goal');
             $table->string('objective');
+            $table->string('material');
+            $table->string('activity');
             $table->longText('confident');
             $table->longText('change');
             $table->longText('benefit');
@@ -30,7 +32,6 @@ return new class extends Migration
             $table->string('notSpirit');
             $table->string('affectingNotSpirit');
             $table->longText('why');
-            $table->string('activity');
             $table->longText('criticism');
             $table->longText('suggestion');
             $table->longText('recommendation');
